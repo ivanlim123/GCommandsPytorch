@@ -47,4 +47,9 @@ def test(loader, model, cuda, verbose=True):
     model_save_name = 'classifier.pt'
     path = F"/content/drive/My Drive/PyTorch_Classifier/{model_save_name}" 
     torch.save(model.state_dict(), path)
+    
+    #save model with accuracy
+    model_save_name = str(round(100. * correct / len(loader.dataset))) + '.pt'
+    path = F"/content/drive/My Drive/PyTorch_Classifier/{model_save_name}" 
+    torch.save(model.state_dict(), path)
     return test_loss
