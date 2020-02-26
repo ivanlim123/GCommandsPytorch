@@ -102,6 +102,9 @@ best_valid_loss = np.inf
 iteration = 0
 epoch = 1
 
+model_save_name = 'classifier.pt'
+path = F"/content/gdrive/My Drive/PyTorch_Classifier/{model_save_name}"
+model.load_state_dict(torch.load(path))
 
 # trainint with early stopping
 while (epoch < args.epochs + 1) and (iteration < args.patience):
