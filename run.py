@@ -7,7 +7,7 @@ import numpy as np
 from model import LeNet, VGG
 from train import train, test
 import os
-
+import os.path
 
 # Training settings
 parser = argparse.ArgumentParser(
@@ -102,8 +102,15 @@ best_valid_loss = np.inf
 iteration = 0
 epoch = 1
 
+if not os.path.isfile('/content/drive/My Drive/PyTorch_Classifier/classifier.pt') :
+  #save model
+  model_save_name = 'classifier.pt'
+  path = F"/content/drive/My Drive/PyTorch_Classifier/{model_save_name}" 
+  torch.save(model.state_dict(), path)
+
+#load model
 model_save_name = 'classifier.pt'
-path = F"/content/gdrive/My Drive/PyTorch_Classifier/{model_save_name}"
+path = F"/content/drive/My Drive/PyTorch_Classifier/{model_save_name}"
 model.load_state_dict(torch.load(path))
 
 # trainint with early stopping
