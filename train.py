@@ -45,6 +45,6 @@ def test(loader, model, cuda, verbose=True):
     
     #save model
     model_save_name = 'classifier.pt'
-    path = F"/content/gdrive/My Drive/PyTorch_Classifier/{model_save_name}" 
+    path = F"/content/drive/My Drive/PyTorch_Classifier/{model_save_name}" 
     torch.save(model.state_dict(), path)
     return test_loss
